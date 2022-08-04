@@ -1,0 +1,32 @@
+#include<bits/stdc++.h>
+using namespace std;
+int secondLargest(int A[],int n)
+{
+    int firstMax=INT_MIN,secMax=INT_MIN;
+    for(int i=0;i<n;i++)
+    {
+        if(A[i]>firstMax)
+        {
+            secMax=firstMax;//update second before first
+            firstMax=A[i];
+        }
+        else if(A[i]>secMax &&A[i]!=firstMax)
+        {
+            secMax=A[i];
+        }
+    }
+    if (secMax==INT_MIN)
+    return -1;
+    return secMax;
+}
+int main()
+{
+    int n;
+    cin>>n;
+    int A[n];
+    for(int i=0;i<n;i++)
+    cin>>A[i];
+    int res=secondLargest(A,n);
+    cout<<res;
+    return 0;
+}
