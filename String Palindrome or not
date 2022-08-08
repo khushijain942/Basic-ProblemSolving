@@ -1,0 +1,22 @@
+#include<bits/stdc++.h>
+using namespace std;
+bool isPal(string s,int ind)
+{
+    int n=s.length();
+    if(ind>=n/2)
+        return true;
+    if(s[ind]!=s[n-ind-1])
+        return false;
+    return isPal(s,ind+1);
+}
+int main()
+{
+    string s;
+    cin>>s;
+    if(isPal(s,0))
+        cout<<"True";
+    else
+        cout<<"False";
+    return 0;
+}
+
